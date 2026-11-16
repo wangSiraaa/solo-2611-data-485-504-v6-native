@@ -1,0 +1,1 @@
+{"parents":{"root":[],"a":["root"],"b":["root"],"merge":["a","b"]},"partial":[{"kind":"sql","sql":"INSERT INTO facts VALUES(9,'prefix')"},{"kind":"vacuum"},{"kind":"sql","sql":"INSERT INTO missing_table VALUES(1)"}]}

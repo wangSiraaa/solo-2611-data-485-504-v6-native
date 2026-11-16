@@ -1,0 +1,6 @@
+{
+  "initial_grants": {"A": 2, "B": 1},
+  "capacity": 3,
+  "normal_rows": [{"id": "x", "value": 4}],
+  "invalid_batch": [{"id": "good", "value": 4}, {"id": "bad", "value": -1}]
+}

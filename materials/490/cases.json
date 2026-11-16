@@ -1,0 +1,9 @@
+{
+  "schema": {"x": {"base": "int", "nullable": true}, "flag": {"base": "bool", "nullable": false}},
+  "add": {"result": {"base": "int", "nullable": true}, "code": [{"op":"LOAD","field":"x"},{"op":"PUSH","type":"int","value":2},{"op":"ADD"},{"op":"RETURN"}]},
+  "unsafe_merge": {"result": {"base": "int", "nullable": false}, "code": [{"op":"LOAD","field":"flag"},{"op":"BRANCH","target":5},{"op":"PUSH","type":"int","value":10},{"op":"JUMP","target":6},{"op":"PUSH","type":"int","value":0},{"op":"PUSH","type":"text","value":"wrong"},{"op":"PUSH","type":"int","value":2},{"op":"ADD"},{"op":"RETURN"}]},
+  "divide": {"result": {"base": "int", "nullable": true}, "code": [{"op":"PUSH","type":"int","value":10},{"op":"LOAD","field":"x"},{"op":"DIV"},{"op":"RETURN"}]},
+  "safe_branch": {"result": {"base":"int","nullable":true}, "code": [{"op":"LOAD","field":"flag"},{"op":"BRANCH","target":6},{"op":"PUSH","type":"int","value":10},{"op":"LOAD","field":"x"},{"op":"DIV"},{"op":"RETURN"},{"op":"PUSH","type":"int","value":99},{"op":"RETURN"}]},
+  "growing_backedge": {"result":{"base":"int","nullable":false},"code":[{"op":"PUSH","type":"int","value":1},{"op":"JUMP","target":0}]},
+  "stable_loop": {"result":{"base":"int","nullable":false},"code":[{"op":"JUMP","target":0}]}
+}

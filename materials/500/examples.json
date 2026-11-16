@@ -1,0 +1,32 @@
+{
+  "normal_relations": {
+    "parent": {
+      "1": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "child": {
+      "1": {
+        "a": 1,
+        "b": 2
+      }
+    }
+  },
+  "fk": {
+    "name": "fk",
+    "child": "child",
+    "parent": "parent",
+    "child_columns": [
+      "a",
+      "b"
+    ],
+    "parent_columns": [
+      "a",
+      "b"
+    ],
+    "on_delete": "NO ACTION",
+    "deferrable": true,
+    "initially_deferred": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "length": [
+    {"site": "A", "reading": "100", "unit": "cm"},
+    {"site": "A", "reading": "2", "unit": "m"},
+    {"site": "B", "reading": null, "unit": "m"}
+  ],
+  "temperature_points": [
+    {"site": "A", "reading": "0", "unit": "C"},
+    {"site": "A", "reading": "68", "unit": "F"},
+    {"site": "B", "reading": null, "unit": "K"}
+  ],
+  "temperature_deltas": [
+    {"site": "A", "reading": "18", "unit": "F"},
+    {"site": "A", "reading": "5", "unit": "C"}
+  ]
+}

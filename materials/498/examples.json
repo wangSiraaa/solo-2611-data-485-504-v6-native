@@ -1,0 +1,1 @@
+{"task_id":"sum-a","attempt":1,"input_ids":["shard-a","shard-b"],"shards":{"shard-a":"1\n2\n","shard-b":"3\n"}}

@@ -1,0 +1,43 @@
+{
+  "public_delivery": {
+    "root": "bundle", "purpose": "public",
+    "graph": {
+      "internal": {"op": "source", "cost": 1, "rows": [{"id": 1, "value": "internal"}], "policy": {"purposes": ["internal"], "attribution": "internal-team", "share": "private", "no_derive": false}},
+      "open": {"op": "source", "cost": 4, "rows": [{"id": 1, "value": "open"}], "policy": {"purposes": ["internal", "public"], "attribution": "open-team", "share": "permissive", "no_derive": false}},
+      "choose": {"op": "choice", "alternatives": ["internal", "open"], "cost": 0},
+      "bundle": {"op": "project", "inputs": ["choose"], "columns": ["id", "value"], "cost": 2}
+    }
+  },
+  "shared_cost": {
+    "root": "bundle", "purpose": "public",
+    "graph": {
+      "data": {"op": "source", "cost": 4, "rows": [{"id": 1, "value": "v"}], "policy": {"purposes": ["internal", "public"], "attribution": "a", "share": "permissive", "no_derive": false}},
+      "shared": {"op": "project", "inputs": ["data"], "columns": ["id", "value"], "cost": 2},
+      "bundle": {"op": "concat", "inputs": ["shared", "shared"], "cost": 1}
+    }
+  },
+  "join_conflict": {
+    "root": "combined", "purpose": "internal",
+    "graph": {
+      "a": {"op": "source", "cost": 1, "rows": [{"id": 1, "left": "x"}], "policy": {"purposes": ["internal"], "attribution": "a", "share": "reciprocal", "no_derive": false}},
+      "b": {"op": "source", "cost": 1, "rows": [{"id": 1, "right": "y"}], "policy": {"purposes": ["internal"], "attribution": "b", "share": "private", "no_derive": false}},
+      "combined": {"op": "join", "inputs": ["a", "b"], "key": "id", "cost": 1}
+    }
+  },
+  "collection_not_derivative": {
+    "root": "collection", "purpose": "internal",
+    "graph": {
+      "a": {"op": "source", "cost": 1, "rows": [{"id": 1, "value": "x"}], "policy": {"purposes": ["internal"], "attribution": "a", "share": "reciprocal", "no_derive": true}},
+      "b": {"op": "source", "cost": 1, "rows": [{"id": 2, "value": "y"}], "policy": {"purposes": ["internal"], "attribution": "b", "share": "private", "no_derive": false}},
+      "collection": {"op": "concat", "inputs": ["a", "b"], "cost": 1}
+    }
+  },
+  "ordinary_join": {
+    "root": "combined", "purpose": "public",
+    "graph": {
+      "a": {"op": "source", "cost": 1, "rows": [{"id": 1, "left": "x"}], "policy": {"purposes": ["internal", "public"], "attribution": "a", "share": "permissive", "no_derive": false}},
+      "b": {"op": "source", "cost": 2, "rows": [{"id": 1, "right": "y"}], "policy": {"purposes": ["internal", "public"], "attribution": "b", "share": "permissive", "no_derive": false}},
+      "combined": {"op": "join", "inputs": ["a", "b"], "key": "id", "cost": 1}
+    }
+  }
+}

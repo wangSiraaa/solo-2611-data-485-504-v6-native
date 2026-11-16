@@ -1,0 +1,38 @@
+{
+  "ordinary": {
+    "lowers": [
+      1
+    ],
+    "shape": [
+      3
+    ],
+    "values": [
+      7,
+      null,
+      9
+    ]
+  },
+  "shifted": {
+    "lowers": [
+      0
+    ],
+    "shape": [
+      3
+    ],
+    "values": [
+      7,
+      null,
+      9
+    ]
+  },
+  "pair": {
+    "left": [
+      1,
+      2,
+      3
+    ],
+    "right": [
+      8
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "normal": [
+    {"id": "make", "group": "G", "depends": [], "op": "create", "key": "A", "body": {"value": 10}},
+    {"id": "change", "group": "G", "depends": ["make"], "op": "update", "key": {"$result": "make", "field": "key"}, "if_match": {"$result": "make", "field": "etag"}, "body": {"value": 20}}
+  ],
+  "failed_group": [
+    {"id": "make", "group": "G", "depends": [], "op": "create", "key": "A", "body": {"value": 10}},
+    {"id": "bad", "group": "G", "depends": ["make"], "op": "update", "key": {"$result": "make", "field": "key"}, "if_match": {"$result": "make", "field": "etag"}, "body": {"value": -1}},
+    {"id": "dependent", "group": "H", "depends": ["make"], "op": "read", "key": {"$result": "make", "field": "key"}},
+    {"id": "independent", "group": "I", "depends": [], "op": "create", "key": "Z", "body": {"value": 30}}
+  ],
+  "value_reference": [
+    {"id": "base", "group": "G", "depends": [], "op": "create", "key": "A", "body": {"value": 7}},
+    {"id": "copy", "group": "H", "depends": ["base"], "op": "create", "key": "B", "body": {"value": {"$result": "base", "field": "value"}}}
+  ]
+}

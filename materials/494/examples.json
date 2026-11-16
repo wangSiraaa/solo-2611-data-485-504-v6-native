@@ -1,0 +1,1 @@
+{"datasets":{"products":{"p1":{"name":"before","qty":7}}},"peer":"connector-A","job_id":"job-one","allowed_fields":["name"]}

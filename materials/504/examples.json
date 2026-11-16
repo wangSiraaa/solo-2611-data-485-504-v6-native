@@ -1,0 +1,6 @@
+{
+  "expected_ids": [1, 2],
+  "good_rows": [{"id": 1, "value": 4}, {"id": 2, "value": 9}],
+  "bad_rows": [{"id": 1, "value": null}, {"id": 2, "value": 9}],
+  "check": "warehouse_value_nonnull"
+}

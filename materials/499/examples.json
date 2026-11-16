@@ -1,0 +1,17 @@
+{
+  "root": "root",
+  "grants": [
+    ["root", "A", "facts", true],
+    ["root", "B", "facts", true],
+    ["A", "C", "facts", true],
+    ["B", "C", "facts", true],
+    ["C", "D", "facts", false]
+  ],
+  "rows": [[1, "warehouse-only"]],
+  "routines": {
+    "direct": {"owner": "D", "security": "invoker", "actions": [{"kind": "select", "object": "facts"}]},
+    "report": {"owner": "D", "security": "definer", "actions": [{"kind": "select", "object": "facts"}]},
+    "nested": {"owner": "D", "security": "definer", "actions": [{"kind": "call", "routine": "direct"}]},
+    "fail": {"owner": "D", "security": "definer", "actions": [{"kind": "select", "object": "facts"}, {"kind": "raise", "message": "business failure"}]}
+  }
+}

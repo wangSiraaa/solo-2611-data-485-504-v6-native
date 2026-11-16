@@ -1,0 +1,7 @@
+{
+  "block_size": 16,
+  "views": {"parent": "AAAAAAAAAAAAAAAABBBBBBBBBBBBBBBB"},
+  "clone": "child",
+  "cross_block_write": {"offset": 14, "ascii": "wxyz"},
+  "fault": {"stage": "after_block_written", "ordinal": 1}
+}

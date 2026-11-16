@@ -1,0 +1,6 @@
+{
+  "normal_rows": [{"key": "a", "value": 4}],
+  "blocked_writer_rows": [{"key": "b", "value": 9}],
+  "seed_event_id": "existing-event",
+  "seed_payload": {"key": "seed", "new": 7, "version": 1}
+}

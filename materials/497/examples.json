@@ -1,0 +1,1 @@
+{"schema":"CREATE TABLE totals(id INTEGER PRIMARY KEY,value INTEGER NOT NULL); INSERT INTO totals VALUES(1,0); CREATE TABLE applied(id INTEGER PRIMARY KEY,job TEXT)","normal_job":"update total once","faults":["serialization","commit_lost"]}
