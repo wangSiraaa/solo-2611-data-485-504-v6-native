@@ -1,1 +1,1 @@
-{"parents":{"root":[],"a":["root"],"b":["root"],"merge":["a","b"]},"partial":[{"kind":"sql","sql":"INSERT INTO facts VALUES(9,'prefix')"},{"kind":"vacuum"},{"kind":"sql","sql":"INSERT INTO missing_table VALUES(1)"}]}
+{"parents":{"root":[],"a":["root"],"b":["root"],"merge":["a","b"]},"linear_parents":{"root":[],"l1":["root"],"l2":["l1"],"l3":["l2"]},"partial":[{"kind":"sql","sql":"INSERT INTO facts VALUES(9,'prefix')"},{"kind":"vacuum"},{"kind":"sql","sql":"INSERT INTO missing_table VALUES(1)"}]}
